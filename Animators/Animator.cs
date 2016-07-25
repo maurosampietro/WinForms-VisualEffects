@@ -129,7 +129,8 @@ namespace VisualEffects
                               {
                                   if (!control.IsDisposed && control.IsHandleCreated)
                                   {
-                                      iEffect.SetValue(control, originalValue, valueToReach, newValue);
+                                    iEffect.SetValue( control, originalValue, valueToReach, 
+                                        stopwatch.ElapsedMilliseconds >= duration ? valueToReach : newValue );
 
                                       bool timeout = stopwatch.ElapsedMilliseconds >= duration;
                                       if (timeout)
